@@ -333,22 +333,27 @@ def process_folder(folder_path):
     combined_text = ""
     for root, dirs, files in os.walk(folder_path):
         for file in files:
+            file_path = os.path.join(root, file)
             if file.endswith("sources.txt"):
-                try:
-                    os.remove(os.path.join(root, file))
-                except OSError:
-                    pass #la propreté avant tout
-                    
+                if os.path.exists(file_path):
+                    try:
+                        os.remove(file_path)
+                    except OSError:
+                        pass #lapropretév2
+            
+
             if file.endswith(".txt"):
-                file_path = os.path.join(root, file)
                 try:
                     with open(file_path, 'r', encoding='utf-8') as f:
                         combined_text += f.read() + " "
+                except FileNotFoundError:
+                    pass
                 except Exception as e:
                     print(f"Error reading {file_path}: {e}")
     if not combined_text:
         print("No .txt files found in the extracted directory.")
         sys.exit(1)
+
     return combined_text
 
 def tokenize(text):
