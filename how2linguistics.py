@@ -334,7 +334,11 @@ def process_folder(folder_path):
     for root, dirs, files in os.walk(folder_path):
         for file in files:
             if file.endswith("sources.txt"):
-                os.remove(os.path.join(root, file))
+                try:
+                    os.remove(os.path.join(root, file))
+                except OSError:
+                    pass #la propreté avant tout
+                    
             if file.endswith(".txt"):
                 file_path = os.path.join(root, file)
                 try:
