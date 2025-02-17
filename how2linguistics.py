@@ -440,7 +440,7 @@ def main():
     tokens = tokenize(combined_text)
     freq_counter = calculate_frequencies(tokens)
     output_csv = os.path.join(download_dir, "output.csv")
-    export_csv(freq_counter, top_n=20, output_filename=output_csv)
+    export_csv(freq_counter, top_n=2000, output_filename=output_csv)
 
 if __name__ == "__main__":
     main()
