@@ -29,6 +29,7 @@ This project is a tool to download, extract, and process corpora from the Leipzi
    ```bash
    pip install -r requirements.txt
 ===============================================================================
+
 Utilisation du Principe de Pareto pour Automatiser la Sélection du Vocabulaire lors de l'Apprentissage des Langues avec la Collection de Corpus de Leipzig
 Ce projet est un outil permettant de télécharger, extraire et traiter des corpus issus de la Leipzig Corpora Collection. Il permet à l'utilisateur de :
 - Choisir une langue parmi un ensemble prédéfini.
